@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--namespace 标识接口的全路径 -->
+<mapper namespace="com.atguigu.gmall.product.mapper.SpuSaleAttrMapper">
+    <!--映射的结果集-->
+    <resultMap id="spuSaleAttrMap" type="com.atguigu.gmall.model.product.SpuSaleAttr" autoMapping="true">
+        <id property="id" column="id"></id>
+
+        <!--mybatis 配置1：n关系-->
+        <collection property="spuSaleAttrValueList" ofType="com.atguigu.gmall.model.product.SpuSaleAttrValue" autoMapping="true">
+            <id property="id" column="sale_attr_value_id"></id>
+        </collection>
+    </resultMap>
+
+
+    <!--可以将相同的字段抽离出来做成一个sql 片段-->
+    <sql id="spuSaleAttrSql">
+        ssa.id,
+        ssa.spu_id,
+        ssa.base_sale_attr_id,
+        ssa.sale_attr_name,
+        ssav.id sale_attr_value_id,
+        ssav.sale_attr_value_name
+    </sql>
+
+    <!--编写sql 语句-->
+    <select id="selectSpuSaleAttrList" resultMap="spuSaleAttrMap">
+        select
+        <include refid="spuSaleAttrSql"></include>
+        from spu_sale_attr ssa
+        inner join spu_sale_attr_value ssav
+        on ssa.spu_id = ssav.spu_id and ssa.base_sale_attr_id = ssav.base_sale_attr_id
+        where ssa.spu_id = #{spuId};
+    </select>
+
+    <select id="selectSpuSaleAttrListCheckBySku" resultMap="spuSaleAttrMap">
+        select
+            ssa.id,
+            ssa.spu_id,
+            ssa.base_sale_attr_id,
+            ssa.sale_attr_name,
+            ssav.id sale_attr_value_id,
+            ssav.sale_attr_value_name,
+            skv.sku_id,
+            if(skv.sku_id is null,0,1) is_checked
+        from spu_sale_attr ssa
+                 inner join spu_sale_attr_value ssav
+                            on ssa.spu_id = ssav.spu_id and ssa.base_sale_attr_id = ssav.base_sale_attr_id
+                 left join sku_sale_attr_value skv on skv.sale_attr_value_id = ssav.id and skv.sku_id=#{skuId}
+        where ssa.spu_id = #{spuId}
+        order by ssav.base_sale_attr_id,ssav.id
+    </select>
+</mapper>
