@@ -54,7 +54,7 @@ _4.panel.unbind(".combo");
 for(var _b in _5.panelEvents){
 _4.panel.bind(_b+".combo",{target:_3},_5.panelEvents[_b]);
 }
-};
+}
 function _c(_d){
 var _e=$.data(_d,"combo");
 var _f=_e.options;
@@ -66,7 +66,7 @@ if(!_f.cloned){
 p.panel("destroy");
 }
 $(_d).textbox("destroy");
-};
+}
 function _10(_11){
 var _12=$.data(_11,"combo").panel;
 if(_12.is(":visible")){
@@ -81,7 +81,7 @@ $("div.combo-panel:visible").not(_12).not(p).panel("close");
 $(_11).combo("showPanel");
 }
 $(_11).combo("textbox").focus();
-};
+}
 function _1(_15){
 $(_15).find(".combo-f").each(function(){
 var p=$(this).combo("panel");
@@ -89,7 +89,7 @@ if(p.is(":visible")){
 p.panel("close");
 }
 });
-};
+}
 function _16(e){
 var _17=e.data.target;
 var _18=$.data(_17,"combo");
@@ -105,7 +105,7 @@ _14(_1a);
 }
 });
 }
-};
+}
 function _1b(e){
 var _1c=e.data.target;
 var t=$(_1c);
@@ -149,7 +149,7 @@ t.combo("validate");
 },_1e.delay);
 }
 }
-};
+}
 function _1f(_20){
 var _21=$.data(_20,"combo");
 var _22=_21.combo;
@@ -181,7 +181,7 @@ if(_28<0){
 _28=0;
 }
 return _28;
-};
+}
 function _27(){
 var top=_22.offset().top+_22._outerHeight();
 if(top+_23._outerHeight()>$(window)._outerHeight()+$(document).scrollTop()){
@@ -191,12 +191,12 @@ if(top<$(document).scrollTop()){
 top=_22.offset().top+_22._outerHeight();
 }
 return top;
-};
-};
+}
+}
 function _14(_29){
 var _2a=$.data(_29,"combo").panel;
 _2a.panel("close");
-};
+}
 function _2b(_2c,_2d){
 var _2e=$.data(_2c,"combo");
 var _2f=$(_2c).textbox("getText");
@@ -204,7 +204,7 @@ if(_2f!=_2d){
 $(_2c).textbox("setText",_2d);
 }
 _2e.previousText=_2d;
-};
+}
 function _30(_31){
 var _32=$.data(_31,"combo");
 var _33=_32.options;
@@ -218,7 +218,7 @@ return _35;
 }else{
 return _35.length?_35[0].split(_33.separator):_35;
 }
-};
+}
 function _36(_37,_38){
 var _39=$.data(_37,"combo");
 var _3a=_39.combo;
@@ -245,7 +245,7 @@ if(_3b.disabled){
 _40.attr("disabled","disabled");
 }
 _40.val(_3e);
-};
+}
 var _41=(function(){
 if(_3c.length!=_38.length){
 return true;
@@ -266,14 +266,14 @@ _3b.onChange.call(_37,_38[0],_3c[0]);
 }
 $(_37).closest("form").trigger("_change",[_37]);
 }
-};
+}
 function _42(_43){
 var _44=_30(_43);
 return _44[0];
-};
+}
 function _45(_46,_47){
 _36(_46,[_47]);
-};
+}
 function _48(_49){
 var _4a=$.data(_49,"combo").options;
 var _4b=_4a.onChange;
@@ -285,7 +285,7 @@ _36(_49,_4a.value?_4a.value:[]);
 _45(_49,_4a.value);
 }
 _4a.onChange=_4b;
-};
+}
 $.fn.combo=function(_4c,_4d){
 if(typeof _4c=="string"){
 var _4e=$.fn.combo.methods[_4c];

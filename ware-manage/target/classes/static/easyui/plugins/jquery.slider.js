@@ -24,7 +24,7 @@ _6(_2);
 return false;
 });
 return _3;
-};
+}
 function _6(_7,_8){
 var _9=$.data(_7,"slider");
 var _a=_9.options;
@@ -47,7 +47,7 @@ _b.children("div").css("width","");
 _b.children("div.slider-rule,div.slider-rulelabel,div.slider-inner")._outerHeight(_b._outerHeight());
 }
 _c(_7);
-};
+}
 function _d(_e){
 var _f=$.data(_e,"slider");
 var _10=_f.options;
@@ -76,8 +76,8 @@ _16.css({top:_15,marginTop:-Math.round(_16.outerHeight()/2)});
 }
 }
 }
-};
-};
+}
+}
 function _17(_18){
 var _19=$.data(_18,"slider");
 var _1a=_19.options;
@@ -156,8 +156,8 @@ $(_18).slider("setValues",[v1,v2]);
 }else{
 $(_18).slider("setValue",_21);
 }
-};
-};
+}
+}
 function _24(_25,_26){
 var _27=$.data(_25,"slider");
 var _28=_27.options;
@@ -207,7 +207,7 @@ $(_25).val(_28.range?_2b.join(_28.separator):_2b[0]);
 if(_2a.join(",")!=_2b.join(",")){
 _28.onChange.call(_25,_28.value,(_28.range?_2a:_2a[0]));
 }
-};
+}
 function _c(_32){
 var _33=$.data(_32,"slider").options;
 var fn=_33.onChange;
@@ -215,7 +215,7 @@ _33.onChange=function(){
 };
 _24(_32,_33.value);
 _33.onChange=fn;
-};
+}
 function _30(_34,_35){
 var _36=$.data(_34,"slider");
 var _37=_36.options;
@@ -229,7 +229,7 @@ if(_37.reversed){
 pos=_39-pos;
 }
 return pos.toFixed(0);
-};
+}
 function _22(_3a,pos){
 var _3b=$.data(_3a,"slider");
 var _3c=_3b.options;
@@ -238,7 +238,7 @@ var _3e=_3c.mode=="h"?_3d.width():_3d.height();
 var pos=_3c.mode=="h"?(_3c.reversed?(_3e-pos):pos):(_3c.reversed?pos:(_3e-pos));
 var _3f=_3c.converter.toValue.call(_3a,pos,_3e);
 return _3f.toFixed(0);
-};
+}
 $.fn.slider=function(_40,_41){
 if(typeof _40=="string"){
 return $.fn.slider.methods[_40](this,_41);

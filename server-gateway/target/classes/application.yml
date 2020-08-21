@@ -71,6 +71,26 @@ spring:
           predicates:
             - Path=/*/order/**
 
+        - id: web-payment
+          uri: lb://web-all
+          predicates:
+            - Host=payment.gmall.com
+        - id: service-payment
+          uri: lb://service-payment
+          predicates:
+            - Path=/*/payment/** # 路径匹配
+
+        - id: web-activity
+          uri: lb://web-all
+          predicates:
+            - Host=activity.gmall.com
+
+        - id: service-activity
+          uri: lb://service-activity
+          predicates:
+            - Path=/*/activity/** # 路径匹配
+
+
 # 我的订单, 订单必须登录   list.html 是做测试用的
 authUrls:
   url: trade.html,myOrder.html

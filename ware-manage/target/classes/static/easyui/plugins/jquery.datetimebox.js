@@ -27,22 +27,22 @@ _3.spinner=p.children("input");
 }
 _3.spinner.timespinner({width:_4.spinnerWidth,showSeconds:_4.showSeconds,separator:_4.timeSeparator});
 $(_2).datetimebox("initValue",_4.value);
-};
+}
 function _8(_9){
 var c=$(_9).datetimebox("calendar");
 var t=$(_9).datetimebox("spinner");
 var _a=c.calendar("options").current;
 return new Date(_a.getFullYear(),_a.getMonth(),_a.getDate(),t.timespinner("getHours"),t.timespinner("getMinutes"),t.timespinner("getSeconds"));
-};
+}
 function _b(_c,q){
 _d(_c,q,true);
-};
+}
 function _e(_f){
 var _10=$.data(_f,"datetimebox").options;
 var _11=_8(_f);
 _d(_f,_10.formatter.call(_f,_11));
 $(_f).combo("hidePanel");
-};
+}
 function _d(_12,_13,_14){
 var _15=$.data(_12,"datetimebox").options;
 $(_12).combo("setValue",_13);
@@ -61,14 +61,14 @@ $(_12).datetimebox("spinner").timespinner("setValue",_17(_16));
 function _17(_18){
 function _19(_1a){
 return (_1a<10?"0":"")+_1a;
-};
+}
 var tt=[_19(_18.getHours()),_19(_18.getMinutes())];
 if(_15.showSeconds){
 tt.push(_19(_18.getSeconds()));
 }
 return tt.join($(_12).datetimebox("spinner").timespinner("options").separator);
-};
-};
+}
+}
 $.fn.datetimebox=function(_1b,_1c){
 if(typeof _1b=="string"){
 var _1d=$.fn.datetimebox.methods[_1b];
@@ -152,7 +152,7 @@ var M=_2e.getMinutes();
 var s=_2e.getSeconds();
 function _2f(_30){
 return (_30<10?"0":"")+_30;
-};
+}
 var _31=$(this).datetimebox("spinner").timespinner("options").separator;
 var r=$.fn.datebox.defaults.formatter(_2e)+" "+_2f(h)+_31+_2f(M);
 if($(this).datetimebox("options").showSeconds){

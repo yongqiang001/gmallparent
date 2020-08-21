@@ -14,7 +14,7 @@ $(c).children().each(function(){
 w+=$(this).outerWidth(true);
 });
 return w;
-};
+}
 function _2(_3){
 var _4=$.data(_3,"tabs").options;
 if(_4.tabPosition=="left"||_4.tabPosition=="right"||!_4.showHeader){
@@ -51,7 +51,7 @@ _6.css({left:"",right:0});
 _9.css({marginLeft:0,marginRight:_6._outerWidth(),width:_c});
 }
 }
-};
+}
 function _d(_e){
 var _f=$.data(_e,"tabs").options;
 var _10=$(_e).children("div.tabs-header");
@@ -74,7 +74,7 @@ _12.linkbutton($.extend({},_f.tools[i],{plain:true}));
 }else{
 _10.children("div.tabs-tool").remove();
 }
-};
+}
 function _13(_14,_15){
 var _16=$.data(_14,"tabs");
 var _17=_16.options;
@@ -142,8 +142,8 @@ p_t.css("width","");
 p_t._outerHeight(_17.tabHeight);
 p_t.css("lineHeight",p_t.height()+"px");
 p_t.find(".easyui-fluid:visible").triggerHandler("_resize");
-};
-};
+}
+}
 function _21(_22){
 var _23=$.data(_22,"tabs").options;
 var tab=_24(_22);
@@ -153,7 +153,7 @@ var _26=_23.width=="auto"?"auto":_25.width();
 var _27=_23.height=="auto"?"auto":_25.height();
 tab.panel("resize",{width:_26,height:_27});
 }
-};
+}
 function _28(_29){
 var _2a=$.data(_29,"tabs").tabs;
 var cc=$(_29).addClass("tabs-container");
@@ -179,7 +179,7 @@ _21(_29);
 }
 return false;
 });
-};
+}
 function _2e(_2f){
 var _30=$.data(_2f,"tabs");
 var _31=_30.options;
@@ -229,8 +229,8 @@ return false;
 }
 });
 return _35;
-};
-};
+}
+}
 function _36(_37){
 var _38=$.data(_37,"tabs").options;
 var _39=$(_37).children("div.tabs-header");
@@ -274,7 +274,7 @@ _39.addClass("tabs-header-noborder");
 _3a.addClass("tabs-panels-noborder");
 }
 _38.doSize=true;
-};
+}
 function _3c(_3d,_3e,pp){
 _3e=_3e||{};
 var _3f=$.data(_3d,"tabs");
@@ -362,7 +362,7 @@ var _4a=$(this).panel("options");
 _3f.options.onUnselect.call(_3d,_4a.title,_4b(_3d,this));
 }}));
 $(_3d).tabs("update",{tab:pp,options:pp.panel("options"),type:"header"});
-};
+}
 function _4c(_4d,_4e){
 var _4f=$.data(_4d,"tabs");
 var _50=_4f.options;
@@ -374,7 +374,7 @@ _50.onAdd.call(_4d,_4e.title,_4e.index);
 if(_4e.selected){
 _51(_4d,_4e.index);
 }
-};
+}
 function _52(_53,_54){
 _54.type=_54.type||"all";
 var _55=$.data(_53,"tabs").selectHis;
@@ -451,7 +451,7 @@ _56.tab.removeClass("tabs-disabled");
 }
 _13(_53);
 $.data(_53,"tabs").options.onUpdate.call(_53,_56.title,_4b(_53,pp));
-};
+}
 function _5b(_5c,_5d){
 var _5e=$.data(_5c,"tabs");
 var _5f=_5e.options;
@@ -484,7 +484,7 @@ if(!_67&&his.length){
 _65=_5e.selectHis.pop();
 $(_5c).tabs("select",_65);
 }
-};
+}
 function _63(_68,_69,_6a){
 var _6b=$.data(_68,"tabs").tabs;
 var tab=null;
@@ -514,7 +514,7 @@ break;
 tmp.remove();
 }
 return tab;
-};
+}
 function _4b(_6d,tab){
 var _6e=$.data(_6d,"tabs").tabs;
 for(var i=0;i<_6e.length;i++){
@@ -523,7 +523,7 @@ return i;
 }
 }
 return -1;
-};
+}
 function _24(_6f){
 var _70=$.data(_6f,"tabs").tabs;
 for(var i=0;i<_70.length;i++){
@@ -533,7 +533,7 @@ return tab;
 }
 }
 return null;
-};
+}
 function _71(_72){
 var _73=$.data(_72,"tabs");
 var _74=_73.tabs;
@@ -545,7 +545,7 @@ return;
 }
 }
 _51(_72,_73.options.selected);
-};
+}
 function _51(_76,_77){
 var p=_63(_76,_77);
 if(p&&!p.is(":visible")){
@@ -554,27 +554,27 @@ if(!p.panel("options").disabled){
 p.panel("open");
 }
 }
-};
+}
 function _79(_7a,_7b){
 var p=_63(_7a,_7b);
 if(p&&p.is(":visible")){
 _78(_7a);
 p.panel("close");
 }
-};
+}
 function _78(_7c){
 $(_7c).children("div.tabs-panels").each(function(){
 $(this).stop(true,true);
 });
-};
+}
 function _62(_7d,_7e){
 return _63(_7d,_7e)!=null;
-};
+}
 function _7f(_80,_81){
 var _82=$.data(_80,"tabs").options;
 _82.showHeader=_81;
 $(_80).tabs("resize");
-};
+}
 function _83(_84,_85){
 var _86=$(_84).find(">.tabs-header>.tabs-tool");
 if(_85){
@@ -583,7 +583,7 @@ _86.removeClass("tabs-tool-hidden").show();
 _86.addClass("tabs-tool-hidden").hide();
 }
 $(_84).tabs("resize").tabs("scrollBy",0);
-};
+}
 $.fn.tabs=function(_87,_88){
 if(typeof _87=="string"){
 return $.fn.tabs.methods[_87](this,_88);
@@ -686,7 +686,7 @@ ul.children("li").each(function(){
 w+=$(this).outerWidth(true);
 });
 return w-_99.width()+(ul.outerWidth()-ul.width());
-};
+}
 });
 }};
 $.fn.tabs.parseOptions=function(_9b){

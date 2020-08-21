@@ -35,7 +35,7 @@
 
 								<div class="choose-address" v-for="userAddress in userAddressList" :key="userAddress.id">
 									<div class="con name" :class="{'selected':userAddress.selected == 1}" @click="selectAddress(userAddress.id)">
-										<a href="javascript:;" ><em>{{userAddress.consignee}}</em></a>
+										<a href="javascript:" ><em>{{userAddress.consignee}}</em></a>
 									</div>
 									<div class="con address">
 										<span class="place">{{userAddress.userAddress}}</span>
@@ -155,7 +155,7 @@
 			</div>
 		</div>
 		<div class="submit">
-			<a class="sui-btn btn-danger btn-xlarge" href="javascript:;" @click="submitOrder()">提交订单</a>
+			<a class="sui-btn btn-danger btn-xlarge" href="javascript:" @click="submitOrder()">提交订单</a>
 		</div>
 	</div>
 	<!-- 底部栏位 -->

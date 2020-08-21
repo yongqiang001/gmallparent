@@ -1,5 +1,6 @@
 package com.atguigu.gmall.order.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.atguigu.gmall.cart.client.CartFeignClient;
 import com.atguigu.gmall.common.result.Result;
 import com.atguigu.gmall.common.util.AuthContextHolder;
@@ -198,5 +199,53 @@ public class OrderApiController {
         // orderService.save(orderInfo);
         return Result.ok(orderId);
     }
+
+    /**
+     * 内部调用获取订单
+     * @param orderId
+     * @return
+     */
+    @GetMapping("inner/getOrderInfo/{orderId}")
+    public OrderInfo getOrderInfo(@PathVariable(value = "orderId") Long orderId){
+        return orderService.getOrderInfo(orderId);
+    }
+
+    //拆单接口： http://localhost:8204/api/order/orderSplit?orderId=xxx&wareSkuMap=xxx
+    // 无论post ，get 通吃！
+    @RequestMapping("orderSplit")
+    public String orderSplit(HttpServletRequest request){
+        // 如何获取到参数？
+        String orderId = request.getParameter("orderId");
+        // [{"wareId":"1","skuIds":["2","10"]},{"wareId":"2","skuIds":["3"]}]
+        String wareSkuMap = request.getParameter("wareSkuMap");
+        // 根据这两个参数进行拆单，获取子订单集合
+        List<OrderInfo> subOrderInfoList = orderService.orderSplit(Long.parseLong(orderId),wareSkuMap);
+        // 子订单的集合:在orderInfo中
+        // 创建一个list集合来存储map
+        List<Map> maps = new ArrayList<>();
+        // 获取orderInfo 中部分字段组成子订单集合
+        for (OrderInfo orderInfo : subOrderInfoList) {
+            // 将orderInfo 转换为Map
+            Map map = orderService.initWareOrder(orderInfo);
+            maps.add(map);
+        }
+        // 返回数据
+        return JSON.toJSONString(maps);
+
+    }
+
+    /**
+     * 秒杀提交订单，秒杀订单不需要做前置判断，直接下单
+     * @param orderInfo
+     * @return
+     */
+    @PostMapping("inner/seckill/submitOrder")
+    public Long submitOrder(@RequestBody OrderInfo orderInfo) {
+        Long orderId = orderService.saveOrderInfo(orderInfo);
+        return orderId;
+    }
+
+
+
 
 }

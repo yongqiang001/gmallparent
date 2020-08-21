@@ -44,10 +44,10 @@
 								<!--</div>-->
 
 								<div class="choose-address" v-for="item in data.userAddressList" :key="item.id">
-									<div class="con name" :class="{'selected':item.isDefault == 1}" @click="selectAddress(item.id)"><a href="javascript:;" >{{item.consignee}}<span title="点击取消选择"/></a></div>
+									<div class="con name" :class="{'selected':item.isDefault == 1}" @click="selectAddress(item.id)"><a href="javascript:" >{{item.consignee}}<span title="点击取消选择"/></a></div>
 									<div class="con address">{{item.consignee}} {{item.userAddress}} <span>{{item.phoneNum}}</span>
 										<!--                    <span class="base">默认地址</span>-->
-										<span class="edittext"><a data-toggle="modal" data-target=".edit" data-keyboard="false" >编辑</a>&nbsp;&nbsp;<a href="javascript:;">删除</a></span>
+										<span class="edittext"><a data-toggle="modal" data-target=".edit" data-keyboard="false" >编辑</a>&nbsp;&nbsp;<a href="javascript:">删除</a></span>
 									</div>
 									<div class="clearfix"></div>
 								</div>
@@ -163,7 +163,7 @@
 			</div>
 		</div>
 		<div class="submit">
-			<a class="sui-btn btn-danger btn-xlarge" href="javascript:;" @click="submitOrder()">提交订单</a>
+			<a class="sui-btn btn-danger btn-xlarge" href="javascript:" @click="submitOrder()">提交订单</a>
 		</div>
 	</div>
 	<!-- 底部栏位 -->

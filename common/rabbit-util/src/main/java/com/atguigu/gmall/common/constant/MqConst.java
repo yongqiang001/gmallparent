@@ -24,6 +24,8 @@ public class MqConst {
     public static final String QUEUE_ORDER_CANCEL  = "queue.order.cancel";
     //取消订单 延迟时间 单位：秒
     public static final int DELAY_TIME  = 24*60*60;
+    // 测试用
+//    public static final int DELAY_TIME  = 1*60;
     /**
      * 订单支付
      */

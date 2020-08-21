@@ -52,7 +52,7 @@ _6.onClickCell.call(_4,_a,_b,_c);
 _2(this);
 return _6.loadFilter.call(this,_e);
 }}));
-};
+}
 function _2(_f){
 var t=$(_f);
 if(!t.length){
@@ -68,7 +68,7 @@ t.datagrid("cancelEdit",_11);
 }
 });
 _10.editIndex=undefined;
-};
+}
 $.fn.propertygrid=function(_12,_13){
 if(typeof _12=="string"){
 var _14=$.fn.propertygrid.methods[_12];
@@ -203,12 +203,12 @@ return _3d;
 }
 }
 return null;
-};
+}
 function _35(){
 if(!$("#datagrid-group-style").length){
 $("head").append("<style id=\"datagrid-group-style\">"+".datagrid-group{height:"+_34.groupHeight+"px;overflow:hidden;font-weight:bold;border-bottom:1px solid #ccc;}"+".datagrid-group-title,.datagrid-group-expander{display:inline-block;vertical-align:bottom;height:100%;line-height:"+_34.groupHeight+"px;padding:0 4px;}"+".datagrid-group-expander{width:"+_34.expanderWidth+"px;text-align:center;padding:0}"+".datagrid-row-expander{margin:"+Math.floor((_34.groupHeight-16)/2)+"px 0;display:inline-block;width:16px;height:16px;cursor:pointer}"+"</style>");
 }
-};
+}
 }});
 $.extend($.fn.datagrid.methods,{groups:function(jq){
 return jq.datagrid("options").view.groups;
@@ -299,7 +299,7 @@ var _59=_58?1:2;
 var _5a=_4f.finder.getTr(_4c,_57-1,"body",_59);
 var tr=_4f.finder.getTr(_4c,_57,"body",_59);
 tr.insertAfter(_5a);
-};
+}
 },updateRow:function(_5b,_5c,row){
 var _5d=$.data(_5b,"datagrid").options;
 $.fn.datagrid.defaults.view.updateRow.call(this,_5b,_5c,row);

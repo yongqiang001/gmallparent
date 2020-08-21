@@ -68,10 +68,10 @@ public class CartServiceImpl implements CartService {
             // 初始化一个实时价格
             cartInfoExist.setSkuPrice(productFeignClient.getSkuPrice(skuId));
             // 更新数据库,缓存。暂时，先这样写，后面会有优化！
-            // cartInfoMapper.updateById(cartInfoExist);
-            cartAsyncService.updateCartInfo(cartInfoExist);
+             cartInfoMapper.updateById(cartInfoExist);
+//            cartAsyncService.updateCartInfo(cartInfoExist);
             //  更新缓存
-            //  redisTemplate.boundHashOps(cartKey).put(skuId.toString(),cartInfoExist);
+//              redisTemplate.boundHashOps(cartKey).put(skuId.toString(),cartInfoExist);
 
         }else {
             // 说明购物车中没有添加的商品
@@ -90,12 +90,12 @@ public class CartServiceImpl implements CartService {
             // 添加购物车时的价格，默认是最新的价格
             cartInfo.setCartPrice(skuInfo.getPrice());
             // 插入到数据库
-            // cartInfoMapper.insert(cartInfo);
-            cartAsyncService.saveCartInfo(cartInfo);
+             cartInfoMapper.insert(cartInfo);
+//            cartAsyncService.saveCartInfo(cartInfo);
 
             cartInfoExist = cartInfo;
             //  更新缓存
-            //  redisTemplate.boundHashOps(cartKey).put(skuId.toString(),cartInfo);
+//              redisTemplate.boundHashOps(cartKey).put(skuId.toString(),cartInfo);
 
         }
         // 要设置缓存同步
